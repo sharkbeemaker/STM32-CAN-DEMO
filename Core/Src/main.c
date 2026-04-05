@@ -111,10 +111,10 @@ int main(void)
 		fdcanx_send_data(&hfdcan1, 0x520, tx_data, 8);
 		HAL_Delay(100);
 		
-		fdcanx_send_data(&hfdcan2, 0x520, tx_data2, 8);
+		fdcanx_send_data(&hfdcan2, 0x521, tx_data2, 8);
 		HAL_Delay(100);
 		
-		fdcanx_send_data(&hfdcan3, 0x520, tx_data3, 8);
+		fdcanx_send_data(&hfdcan3, 0x522, tx_data3, 8);
 		HAL_Delay(100);
     /* USER CODE END WHILE */
 
