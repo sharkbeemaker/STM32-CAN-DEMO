@@ -24,6 +24,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "bsp_fdcan.h"
+#include "stdlib.h"
+#include "string.h"
+#include "stdint.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,9 +58,9 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t tx_data[8] = {1,1,1,1,1,1,1,1};
-uint8_t tx_data2[8] = {2,2,2,2,2,2,2,2};
-uint8_t tx_data3[8] = {3,3,3,3,3,3,3,3};
+uint8_t tx_data[64] = {1,1,1,1,1,1,1,1};
+uint8_t tx_data2[64] = {2,2,2,2,2,2,2,2};
+uint8_t tx_data3[64] = {3,3,3,3,3,3,3,3};
 /* USER CODE END 0 */
 
 /**
@@ -85,7 +88,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -102,19 +105,22 @@ int main(void)
   MX_FDCAN3_Init();
   /* USER CODE BEGIN 2 */
 	bsp_can_init();
+  memset(tx_data,1,sizeof(tx_data));
+  memset(tx_data2,2,sizeof(tx_data2));
+  memset(tx_data3,3,sizeof(tx_data3));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		fdcanx_send_data(&hfdcan1, 0x520, tx_data, 8);
+		fdcanx_send_data(&hfdcan1, 0x520, tx_data,64);
 		HAL_Delay(100);
 		
-		fdcanx_send_data(&hfdcan2, 0x521, tx_data2, 8);
+		fdcanx_send_data(&hfdcan2, 0x521, tx_data2, 64);
 		HAL_Delay(100);
 		
-		fdcanx_send_data(&hfdcan3, 0x522, tx_data3, 8);
+		fdcanx_send_data(&hfdcan3, 0x522, tx_data3, 64);
 		HAL_Delay(100);
     /* USER CODE END WHILE */
 
