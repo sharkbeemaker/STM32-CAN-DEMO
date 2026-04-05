@@ -1,0 +1,99 @@
+# STM32CubeMX + MDK-ARM 通用 .gitignore
+# 2025-10-12 更新
+
+########## CubeMX 重新生成时会变动的文件 ##########
+*.ioc.bak
+*.launch
+.ioc/
+MXTmp/
+CubeMX_Log.txt
+*.gen
+
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+
+########## Keil MDK 编译输出 ##########
+**/Objects/
+**/Listings/
+**/Debug/
+**/Release/
+**/RTE/
+*.axf
+*.o
+*.d
+*.crf
+*.htm
+*.build_log.htm
+*.dep
+*.lnp
+*.map
+*.lst
+*.bin
+*.srec
+*.elf
+*.lib
+*.ar
+*.pack
+*.iex
+*.uvguix.*
+*.uvoptx
+*.uvprojx.bak
+*.scvd
+*.ini
+JLinkLog.txt
+*.dbgconf
+
+########## Keil 下载、调试临时文件 ##########
+*.ini
+*.scvd
+*.dat
+*.bin
+*.hex
+Events/
+RTT/
+
+########## 用户个人设置（可选） ##########
+*.uvoptx          # 若希望完全共享工程，可注释掉此行
+*.uvguix.*        # 窗口布局，完全个人化，建议忽略
+
+########## OS 垃圾 ##########
+.DS_Store
+Thumbs.db
+desktop.ini
+
+########## 其他常见编辑器 ##########
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+########## 日志 & 临时 ##########
+*.log
+logs/
+npm-debug.log*
+*.tmp
+*.temp
+*.bak
+########## word ##########
+~$设计任务-罗昊.doc
+
